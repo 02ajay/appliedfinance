@@ -17,7 +17,8 @@ cusip_lookup['037833100']
 Alphabet Inc. was formed in 2015 as part of a corporate restructuring of Google. Analyzing the change in stock prices over time is a common task in the world of finance. One way to store stock data is to use the dates as keys and the prices as values in a dictionary. In this exercise, you access stock closing price data for the company Alphabet for various dates without knowing beforehand if each date has data available. The supplied dictionary alphabet_hist has datetimes as keys and stock closing prices as values. A datetime object named closing_price_date is supplied.
 
 * Access the closing price for the day before in a way that is safe, even if that date is missing.
-  .. The .get() method can be used to access dictionary values safely.
+
+  The .get() method can be used to access dictionary values safely.
   
 ```
 # Closing price for day before
@@ -25,7 +26,7 @@ day_before_closing_price_date = closing_price_date - timedelta(days=1)
 # Safely print closing price day before or None if it's missing
 print(alphabet_hist.get(day_before_closing_price_date))
 ```
-  ... TO Supply the default value 'Missing' to use if a key is missing from a dictionary so that your reporting will be more meaningful.
+* TO Supply the default value 'Missing' to use if a key is missing from a dictionary so that your reporting will be more meaningful.
 ```
 # Get day eight weeks in future
 future_closing_price_date = closing_price_date + timedelta(weeks=8)
@@ -33,7 +34,7 @@ future_closing_price_date = closing_price_date + timedelta(weeks=8)
 # Safely get value for the future date or the string 'Missing'
 print(alphabet_hist.get(future_closing_price_date, 'Missing'))
 ```
-  .... After deciding that the data might be incorrect, delete the entry whose value is held in closing_price_date from alphabet_hist.
+* After deciding that the data might be incorrect, delete the entry whose value is held in closing_price_date from alphabet_hist.
 ```
 # Print with key
 print(alphabet_hist)
