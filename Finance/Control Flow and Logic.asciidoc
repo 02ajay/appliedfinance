@@ -1,0 +1,88 @@
+Comparison operators
+--------------------
+.operator 
+==  Comapariosn
+> :: Greter than
+< :: less than;
+=! :: not equal to 
+
+=== example
+* Assignment and equality
+```
+# Assign 19.11 value to cash.
+cash = 19.11
+
+# Check if cash is equal to non-cash
+print(cash == non_cash)
+
+# Assign the value of cash to be equal non-cash
+cash = non_cash
+
+# Check if cash is equal to non-cash
+print(cash == non_cash)
+
+```
+```
+# Check dividend is greater than zero
+print(d2 > 0)
+
+# Is dividend 1 is greater than dividend 2?
+print(d1 > d2)
+```
+```
+# Check dividend 1 is at least 100
+print(d1 >=100)
+
+# Check dividend 2 is at least as much dividend 1
+print(d1 <= d2)
+```
+== Loop
+. Breaking out of a for loop
+example::
+* Create a loop which will iterate through the items in buys.
+* Subtract the cost of a purchase from the provided variable balance.
+* Code
+```
+# Loop through buys
+for buy in buys:
+    print('Buying ' + buy['symbol'])
+    new_balance = balance - buy['total_cost']
+    balance = new_balance
+
+print(balance)
+```
+* Check if the new balance would be negative.
+* Stop the iteration of the loop to prevent a negative balance.
+* Code ::
+```
+for buy in buys:
+    print('Buying ' + buy['symbol'])
+    new_balance = balance - buy['total_cost']
+    if new_balance < 0:
+        print('Unable to finish buys')
+        break
+    balance = new_balance
+
+print(balance)
+```
+.Controlling loop execution
+* Create a loop with a condition that is always true.
+* Skip steps where net exports are less than zero.
+* Check the number of surplus years gathered.
+* Stop the loop once five years have been gathered.
+* Code;;
+# Loop while true
+```
+while True:
+    net_exports = nea.get(query_date, -1)
+    query_date = datetime(query_date.year - 1, 1, 1)
+    # Skip if net exports are not positive
+    if net_exports < 0:
+        continue   
+    surplus_years.append(query_date)
+    # Check if 5 years have been collected
+    if len(surplus_years) == 5:
+        # Stop the loop
+        break
+print(surplus_years)
+```
