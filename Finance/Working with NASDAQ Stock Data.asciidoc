@@ -1,0 +1,109 @@
+:toc:
+:toclevels: 3
+toc::[]
+= Peeking at data with head, tail, and describe
+== Peek at top and bottom
+- Get the first five rows of data.
+```
+alphabet.head()
+```
+- Peek at the top seven rows
+```
+alphabet.head(7)
+```
+- Peek at the just the last row.
+```
+alphabet.tail(1)
+```
+== Describing data
+- Get the summary statistics for all of the numeric columns.
+```
+alphabet.describe()
+```
+- Get the summary statistics only for columns whose type is int.
+```
+alphabet.describe(include='int')
+```
+- Get the summary statistics for all numeric columns, but with percentiles for %30, %50, and %60.
+```
+alphabet.describe(percentiles=[.3, .5, .6])
+```
+= Filtering data
+== Filtering stock data.
+- Create a mask for all of the rows whose daily high is greater than $500.
+- Create a DataFrame using this mask
+```
+# Mask for large enough daily high
+high_mask = alphabet.high > 500
+
+# Filter using the mask
+alphabet.loc[high_mask]
+```
+- Create a mask for the volume of 1771271.+
+Create a DataFrame of row(s) with a volume of 1771271.
+```
+# Mask for specific volume
+volume_mask = alphabet.volume == 1771271
+
+# Filter using the mask
+alphabet.loc[volume_mask]
+```
+- Make a mask for all rows where the volume does not equal 1997999.+
+Filter using this mask.
+```
+# Mask rows whose volume is not 1997999
+volume_mask = alphabet.volume != 1997999
+
+# Filter using the mask
+alphabet.loc[volume_mask]
+```
+== Selecting data from data range
+- Create a mask of historical dates in the given date range.+
+A mask can be used to make a selection of rows from a DataFrame.
+```
+# Calculate the mask for one week
+mask = (alphabet['date'] >= start_date) & (alphabet['date'] <= end_date)
+
+# Use the mask to get the data for one week
+df = alphabet[mask]
+
+# Look at result
+print(df)
+```
+= Plotting data
+rot to rotake
+title give title to plot
+index 
+plot type
+bar :
+hist : distribution of data
+scatter plot
+line 
+
+== Making a line plot
+- Create a line plot of the high price using the date for the x-axis.
+```
+# Plot the daily high price
+alphabet2w.plot(y = 'high')
+```
+- Now rotate the x-axis label by 90 degrees.
+```
+alphabet2w.plot(y='high', rot=90)
+```
+- Add the title "High Daily Prices" to the plot.
+```
+alphabet2w.plot(y='high', rot=90, title='High Daily Prices')
+```
+== Choose kind of plot
+- Create a line plot of the daily trading volume using the date as the x-axis.
+```
+alphabet2w.plot(y='volume', rot=90, title='Alphabet Daily Volume')
+```
+- Plot the volume using a bar plot.
+```
+alphabet2w.plot(y='volume', kind='bar', title='Alphabet Daily Volume')
+```
+- Create a histogram of the daily volume.
+```
+alphabet2w.plot(y='volume', kind='hist', title='Alphabet Daily Volume')
+```
