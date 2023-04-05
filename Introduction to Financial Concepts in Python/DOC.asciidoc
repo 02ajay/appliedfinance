@@ -1,0 +1,19 @@
+:toc:
+:toclevels: 3
+
+toc::[]
+= The Time Value of Money
+== Fundamental financial concepts
+=== Growth and rate of return
+Growth and Rate of Return are two concepts that are ubiquitous throughout the financial world. Recall that the cumulative returns from investing $100 in an asset that grows at 5% per year, over a 2 year period can be calculated as:
+100*(1+0.05)^2
+future_value = initial_investment*(1+growth_rate)**(growth_periods)
+- Calculate the future value (cumulative return) of a $100 investment which grows at a rate of 6% per year for 30 years in a row and assign it to future_value.
+# Calculate the future value of the investment and print it out
+future_value = 100*(1+.06)**(30)
+print("Future Value of Investment: " + str(round(future_value, 2)))
+- Calculate the value of a $100 investment which grows at a rate of 6% per year for 30 years in a row compounded once per year and assign it to investment_1
+
+= Making Data-Driven Financial Decisions
+= Simulating a Mortgage Loan
+= Budgeting Application
