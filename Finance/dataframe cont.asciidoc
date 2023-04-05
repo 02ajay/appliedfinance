@@ -34,7 +34,7 @@ print(ledger.loc[:, 'Balance'])
 |2	|AMZN	|2020-02-14	|14	|324.95
 |=====================================
 
-+++++++++++++++++++++++++++++++++++++++++++++
+
 - Select the oldest price.
 ```
 # Cell first row, Price column
