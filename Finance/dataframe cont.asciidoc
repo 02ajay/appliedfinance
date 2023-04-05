@@ -68,4 +68,54 @@ positions.iloc[:, 2] = 0
 
 print(positions)
 ```
+== Extending and manipulating data
+==== Creating new columns
+Personal consumption expenditures (PCE) are a measurement of consumer consumption useful in judging the state and direction of the economy. Pretend that you are a financial analyst at an investment fund tasked with calculating PCE. PCE is the sum of consumption by consumers of durable goods (PCDG), non-durable goods (PCND), and services (PCESV). Let's calculate PCE using the list pcesv, the DataFrame pcnd, and PCDG from a CSV file.+
 
+```
+# Use the list pcesv to create the column PCESV
+pce['PCESV'] = pcesv
+
+# Use the DataFrame pcnd to create the column PCND
+pce['PCND'] = pcnd
+
+# Create column for PCDG using Pandas read_csv
+pce['PCDG'] = pd.read_csv('pcdg.csv', index_col='DATE')
+
+# Create a column PCE by adding values from other columns
+pce['PCE'] = pce['PCDG'] + pce['PCND'] + pce['PCESV']
+pce.head()
+```
+==== Dropping columns from DataFrame
+Sometimes your DataFrame has columns that you no longer need. It is often the case that you need to simplify a DataFrame by removing columns. Do you remember from the video which method you need to use to drop a row or a column?+
+
+Pretend that you wish to present the results of your PCE calculation to stakeholders at your company, without presenting the columns you used for the calculation. Drop the columns PCDG, PCND, and PCESV from the supplied DataFrame pce, leaving only the column PCE. The list columns_to_drop is provided.
+
+```
+columns_to_drop = ['PCDG', 'PCND', 'PCESV']
+
+# Print the current columns of the DataFrame pce
+print(pce.columns)
+
+# Create new_pce by dropping columns_to_drop from pce
+new_pce = pce.drop(columns=columns_to_drop)
+# Print the columns of the new DataFrame
+print(new_pce.columns)
+
+# Drop the columns in_place in the original DataFrame
+pce.drop(columns=columns_to_drop, inplace=True)
+
+# Print the columns of the DataFrame pce
+print(pce.columns)
+```
+==== Manipulating data with Pandas
+- Combine the supplied source DataFrames ge, gpdi, ne and pce in that order into a single new DataFrame
+```
+# Combine the source DataFrames into one
+gdp = pd.concat([ge, gpdi, ne, pce], axis=1)
+```
+- Sum the values in each row to produce the GDP per year.
+```
+# Add the columns and create a new column with the result
+gdp['GDP'] = gdp.apply(np.sum, axis=1)
+```
