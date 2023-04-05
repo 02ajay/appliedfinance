@@ -58,39 +58,10 @@ print(stocks)
 3. Accessing Data
 Introduction lesson data
 
-|==============================
+|===============================================
 ||Cash|Securities|Balance
 |2020-10-01|0.0|-300|1222.0
 |2020-10-02|300|-200|1322.0
 |2020-10-03|-100.0|700.0|1922.0
-|================================
-+++++++++++++++++++++++++++++++++++
-== Accessing the data using loc(names)
-- Use column and row names to select the balance as of October 2nd.
-```
-# Select the Balance for October 2nd
-print(ledger.loc['2020-10-02','Balance'])
-```
-- Select the balance as of October 3rd using names.
-```
-# Select the Balance for October 3rd
-print(ledger.loc['2020-10-03','Balance'])
-```
-```
-# Cash and Securities for October 3rd
-print(ledger.loc['2020-10-03', ['Cash', 'Securities']])
-# Balance for October 1st and 3rd
-print(ledger.loc[['2020-10-01','2020-10-03'], 'Balance'])
-```
--- Use slicing to select all columns for October 1st.
-```
-# All columns for October 1st
-print(ledger.loc['2020-10-01', :])
-```
---Use slicing to select the balance for all dates.
-```
-# Balance for all dates
-print(ledger.loc[:, 'Balance'])
-```
-
+|==========================================================
 
