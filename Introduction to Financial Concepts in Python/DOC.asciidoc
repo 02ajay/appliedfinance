@@ -13,7 +13,7 @@ future_value = initial_investment*(1+growth_rate)**(growth_periods)
 future_value = 100*(1+.06)**(30)
 print("Future Value of Investment: " + str(round(future_value, 2)))
 - Calculate the value of a $100 investment which grows at a rate of 6% per year for 30 years in a row compounded once per year and assign it to investment_1
-
+np
 = Making Data-Driven Financial Decisions
 
 = Simulating a Mortgage Loan
