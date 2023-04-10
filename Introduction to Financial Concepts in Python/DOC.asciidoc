@@ -15,5 +15,6 @@ print("Future Value of Investment: " + str(round(future_value, 2)))
 - Calculate the value of a $100 investment which grows at a rate of 6% per year for 30 years in a row compounded once per year and assign it to investment_1
 
 = Making Data-Driven Financial Decisions
+
 = Simulating a Mortgage Loan
 = Budgeting Application
